@@ -10,6 +10,7 @@ nav.navbar.navbar-inverse role="navigation"
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
+          li= link_to 'The list is not published video', videos_path
           li= link_to current_user.email, edit_user_registration_path
           li= link_to 'Log Out', destroy_user_session_path, method: :delete
         - else
