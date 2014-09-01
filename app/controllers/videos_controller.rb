@@ -1,9 +1,13 @@
 class VideosController < ApplicationController
   before_filter :authenticate_user!
-  before_action :set_video, only: :destroy
+  before_action :set_video, only: [:show, :destroy]
 
   def new
     @video = current_user.videos.build
+  end
+
+  def show
+    @comments = @video.comments.newest
   end
 
   def create

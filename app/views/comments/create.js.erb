@@ -1,0 +1,6 @@
+<% if @comment.persisted? %>
+  $("#comments-list").prepend("<%=j render(@comment, video: @video) %>");
+  $("form#new_comment").replaceWith("<%=j render("form", video: @video, comment: Comment.new) %>");
+<% else %>
+  $("form#new_comment").replaceWith("<%=j render("form", video: @video, comment: @comment) %>");
+<% end %>

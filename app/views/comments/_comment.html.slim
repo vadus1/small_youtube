@@ -1,0 +1,14 @@
+.comment id=dom_id(comment)
+  .row
+    .col-sm-8
+      p.info
+        span.username=> comment.user.email
+        span.created-at'
+          span.title=> 'Posted at:'
+          span= l(comment.created_at, format: :short)
+      p.body
+        = comment.body
+      - if signed_in?
+        p.actions
+          - if video.owner?(current_user) || comment.owner?(current_user)
+            => link_to 'Delete', video_comment_path(video, comment), remote: true, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
