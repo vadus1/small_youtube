@@ -8,6 +8,7 @@ h1 Listing videos
       tr
         th Title
         th Video
+        th Format
         th User
         th Created at
     tbody
@@ -15,6 +16,8 @@ h1 Listing videos
         tr
           td = video.title
           td = video_tag video.file, size: "320x240", controls: true
+          td = video.file.file.try(:extension)
+          td
           td = video.user.email
           td = video.created_at
           td = link_to 'Destroy', video, class: 'btn btn-danger', data: {confirm: 'Are you sure?'}, method: :delete
