@@ -25,6 +25,7 @@ gem 'kaminari'
 gem 'carrierwave'
 gem 'carrierwave-video'
 gem 'carrierwave_backgrounder'
+gem 'unidecoder'
 
 group :development do
   gem 'annotate'

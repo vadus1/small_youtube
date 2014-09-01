@@ -8,6 +8,13 @@ class VideoFileUploader < CarrierWave::Uploader::Base
   storage :file
   # storage :fog
 
+  version :mp4 do
+    process encode_video: [:mp4]
+    def full_filename(for_file=file)
+      (super.chomp(File.extname(super)) + '.mp4').to_ascii
+    end
+  end
+
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
