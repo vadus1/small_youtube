@@ -1,0 +1,16 @@
+.row
+  .col-sm-12
+    h2= @video.title
+    p = @video.description
+    = video_tag @video.file.mp4, size: "320x240", controls: true
+
+section.dark
+  .container.comments
+    h2 Comments
+
+    - if signed_in?
+      = render 'comments/form', video: @video, comment: Comment.new
+    - else
+      .message Sign in or sign up to leave a comment
+    #comments-list
+      = render @comments, video: @video

@@ -1,0 +1,7 @@
+= simple_form_for [video, comment], remote: true, html: { class: 'form-small' } do |f|
+  .row
+    .col-sm-12
+      .form-inputs
+        = f.input :body, label: false, input_html: { rows: 5 }
+      .form-actions
+        = f.button :submit, 'Post Comment', class: 'btn btn-default pull-right', data: { disable_with: 'Posting...' }
