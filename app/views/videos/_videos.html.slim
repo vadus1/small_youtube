@@ -1,0 +1,22 @@
+- if @videos.present?
+  table.table.table-stripped.table-hover
+    thead
+      tr
+        th Title
+        th Video
+        th Format
+        th User
+        th Created at
+    tbody
+      - @videos.each do |video|
+        tr
+          td = link_to video.title, video
+          td = video_tag video.file.mp4, size: "320x240", controls: true
+          td = video.file.mp4.file.try(:extension)
+          td = video.user.email
+          td = video.created_at
+          td = link_to 'Publish', publish_video_path(video), class: 'btn btn-default', data: {confirm: 'Are you sure?'}, method: :put if video.owner?(current_user) && !video.is_published?
+          td = link_to 'Show', video, class: 'btn btn-default'
+          td = link_to 'Destroy', video, class: 'btn btn-danger', data: {confirm: 'Are you sure?'}, method: :delete
+- else
+  .alert.alert-warning No videos

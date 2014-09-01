@@ -1,6 +1,10 @@
 class VideosController < ApplicationController
   before_filter :authenticate_user!
-  before_action :set_video, only: [:show, :destroy]
+  before_action :set_video, only: [:show, :destroy, :publish]
+
+  def index
+    @videos = Video.not_published
+  end
 
   def new
     @video = current_user.videos.build
@@ -23,6 +27,11 @@ class VideosController < ApplicationController
   def destroy
     @video.destroy
     redirect_to root_path, notice: 'Video was successfully destroyed.'
+  end
+
+  def publish
+    @video.publish!
+    redirect_to root_path, notice: 'You published video'
   end
 
   private

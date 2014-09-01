@@ -2,14 +2,15 @@
 #
 # Table name: videos
 #
-#  id          :integer          not null, primary key
-#  user_id     :integer
-#  title       :string           not null
-#  file        :string
-#  file_tmp    :string
-#  description :text
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
+#  id           :integer          not null, primary key
+#  user_id      :integer
+#  title        :string           not null
+#  file         :string
+#  file_tmp     :string
+#  description  :text
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  published_at :datetime
 #
 
 require 'test_helper'
