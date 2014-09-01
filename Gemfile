@@ -14,7 +14,6 @@ gem 'rails-html-sanitizer', '~> 1.0'
 #A+H
 gem 'devise', github: 'plataformatec/devise', branch: 'lm-rails-4-2'
 gem 'mini_magick'
-gem 'carrierwave'
 gem "twitter-bootstrap-rails"
 gem 'font-awesome-rails'
 gem 'slim-rails'
@@ -23,7 +22,9 @@ gem 'delayed_job_active_record', '~> 4.0.1'
 gem 'simple_form', '~> 3.1.0.rc2'
 gem 'kaminari'
 
+gem 'carrierwave'
 gem 'carrierwave-video'
+gem 'carrierwave_backgrounder'
 
 group :development do
   gem 'annotate'
