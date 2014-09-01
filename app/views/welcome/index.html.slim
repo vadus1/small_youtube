@@ -15,9 +15,8 @@ h1 Listing videos
       - @videos.each do |video|
         tr
           td = video.title
-          td = video_tag video.file, size: "320x240", controls: true
-          td = video.file.file.try(:extension)
-          td
+          td = video_tag video.file.mp4, size: "320x240", controls: true
+          td = video.file.mp4.file.try(:extension)
           td = video.user.email
           td = video.created_at
           td = link_to 'Destroy', video, class: 'btn btn-danger', data: {confirm: 'Are you sure?'}, method: :delete
