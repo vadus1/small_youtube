@@ -1,0 +1,21 @@
+.row
+  .col-sm-9.col-sm-offset-3
+    .page-header
+      h1 Registration
+  .col-sm-4.col-sm-offset-3
+    = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = f.error_notification
+      .form-group
+        = f.input :email, require: true, label: false, input_html: {class: 'form-control'}
+      .form-group
+        = f.input :password, require: true, label: false, input_html: {class: 'form-control'}
+      .form-group
+        = f.input :password_confirmation, require: true, label: false, input_html: {class: 'form-control'}
+      .form-group
+        = f.button :submit, "Sign Up", class: 'btn btn-primary btn-block btn-lg'
+        br
+  .col-sm-4.col-sm-offset-1
+    hr.visible-sm
+    br.hidden-sm
+    br.hidden-sm
+    = render "devise/shared/links"
